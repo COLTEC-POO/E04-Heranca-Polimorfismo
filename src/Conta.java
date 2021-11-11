@@ -75,7 +75,7 @@ public class Conta {
 
     //metodo - imprimir: imprime dados da conta
     public void imprimir (Conta conta){
-        System.out.println("***Detalhamento Conta:***");
+        System.out.println("-Detalhamento Conta-");
         System.out.println("Número:"+getNumero());
         System.out.println("Nome:"+getDono());
         System.out.println("Saldo:"+getSaldo());

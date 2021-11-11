@@ -1,12 +1,15 @@
+import java.util.Date;
+
 public class Cliente {
     private String nome;
-    private int idade;
-    private String profissao;
+    private String endereco;
+    private Date dataCliente;
+
 
     public Cliente(){
         this.nome="INVALIDO";
-        this.idade=0;
-        this.profissao="INVALIDO";
+        this.endereco="INVALIDO";
+        this.dataCliente=new Date();
     }
 
     public String getNome(){
@@ -17,20 +20,26 @@ public class Cliente {
         this.nome=nome;
     }
 
-    public int getIdade(){
-        return this.idade;
+    public String getEndereco(){
+        return this.endereco;
     }
 
-    public void setIdade(int idade){
-        this.idade=idade;
+    public void setEndereco(String endereco) {
+        this.endereco = endereco;
     }
 
-    public String getProfissao(){
-        return this.profissao;
+    public Date getDataCliente(){
+        return this.dataCliente;
     }
 
-    public void setProfissao(String profissao){
-        this.profissao=profissao;
+    /*public void setDataCliente(Date dataCliente) {//desabitei para que niguem altere a data da criação do cliente
+        this.dataCliente = dataCliente;
+    }*/
+
+    public void imprimirCliente(Cliente cliente){
+        System.out.println("Nome:"+getNome());
+        System.out.println("Endereço:"+getEndereco());
+        System.out.println("Data da criação do cadastro:"+getDataCliente());
     }
 
 }
