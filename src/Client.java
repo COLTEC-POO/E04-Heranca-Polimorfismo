@@ -1,35 +1,30 @@
-public class Client {
-    private String name;
-    private String cpf;
-    private String address;
-    private int age;
-    private char sex;
+import java.util.Date;
 
-    public Client(String name, String cpf, String address, int age, char sex) {
+public class Client {
+    protected String name;
+    protected String address;
+    protected Date creation_date;
+
+    public Client(String name, String address) {
         this.name = name;
-        this.cpf = cpf;
         this.address = address;
-        this.age = age;
-        this.sex = sex;
+        this.creation_date = new Date();
+    }
+
+    void print() {
+        System.out.println("Client inválido");
     }
 
     public String getName() {
         return this.name;
     }
 
-    public String getCpf() {
-        return cpf;
-    }
-
     public String getAddress() {
         return this.address;
     }
 
-    public int getAge() {
-        return this.age;
+    public Date getCreation_date() {
+        return this.creation_date;
     }
 
-    public char getSex() {
-        return this.sex;
-    }
 }

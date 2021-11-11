@@ -1,8 +1,8 @@
 public class Main {
 
     public static void main(String[] args) {
-        Client client1 = new Client("Matheus Roberto", "123.456.789-09", "Rua sei lán, 500", 21, 'M');
-        Client client2 = new Client("Ana Carolina", "987.654.321-98", "Rua não sei lá, 666", 18, 'F');
+        Client client1 = new PessoaFisica("Matheus Roberto", "123.456.789-09", "Rua sei lán, 500", 21, 'M');
+        Client client2 = new PessoaFisica("Ana Carolina", "987.654.321-98", "Rua não sei lá, 666", 18, 'F');
         Client client3 = client1;
 
         Account account1 = new Account(client1, 0.0, 500, 1);
