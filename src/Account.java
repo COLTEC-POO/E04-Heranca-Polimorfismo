@@ -22,7 +22,7 @@ public class Account {
             return false;
         }
 
-        this.operations[currentOperation] = new Operacao('D', amount);
+        this.operations[currentOperation] = new OperacaoDeposito(amount);
         ++this.currentOperation;
 
         total -= amount;
@@ -34,7 +34,7 @@ public class Account {
             return false;
         }
 
-        this.operations[this.currentOperation] = new Operacao('C', amount);
+        this.operations[this.currentOperation] = new OperacaoSaque(amount);
         ++this.currentOperation;
 
         this.total += amount;
