@@ -36,10 +36,10 @@ public class Operacao {
             this.valor = valor;
         }
 
-    public void imprimirExtrato() {
-        System.out.println("Extrato Bancário");{
-            System.out.println("DATA " + this.getData() + "TIPO DE OPERACAO: " + this.getTipo() + "VALOR: R$" + this.getValor());
-        }
+        public void imprimirExtrato(){
+            if (this.data != null) {
+                System.out.println("Data: " + this.data + "Operação: " + this.tipo + "Valor: " + this.valor);
+            }
     }
 
 

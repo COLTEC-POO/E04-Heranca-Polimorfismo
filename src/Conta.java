@@ -6,7 +6,7 @@ public class Conta {
         public double saldo = 0;
         public double limite = 0;
         public Operacao[] operacoes = new Operacao[1000];
-        public int nOperacoes = 1000;
+        public int nOperacoes = 0;
 
         public void imprimirInfo() {
             System.out.println("....Numero da conta:  " + numConta);
@@ -20,7 +20,8 @@ public class Conta {
                 return false;
             } else {
                 this.saldo -= valor;
-                this.operacoes[1] = new OperacaoSaque(valor);
+                this.operacoes[nOperacoes] = new OperacaoSaque(valor);
+                nOperacoes++;
                 return true;
             }
         }
@@ -30,7 +31,8 @@ public class Conta {
                 return false;
             } else {
                 this.saldo += valor;
-                this.operacoes[1] = new OperacaoDeposito(valor);
+                this.operacoes[nOperacoes] = new OperacaoDeposito(valor);
+                nOperacoes++;
                 return true;
             }
         }
