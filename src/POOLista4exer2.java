@@ -329,14 +329,14 @@ Date data;
 void imprimir(): 
 
 
-class PessoaFisica{ // herdará de Cliente:
+class PessoaFisica extend Cliente{ // herdará de Cliente:
 
 String CPF;
 int idade;
 char sexo; //('m' para masculino, e 'f' para feminino).
 void imprimir()
 
-class PessoaJuridica{
+class PessoaJuridica extend Cliente{
 
 String cnpj;
 int numFuncionarios; //Número de funcionários da PJ
