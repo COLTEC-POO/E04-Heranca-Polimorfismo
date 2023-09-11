@@ -21,4 +21,22 @@ public class Cliente {
         this.sexo = sexo;
 
     }
+
+    public static class PessoaFisica extends Cliente {
+
+        public PessoaFisica(String cpf, char sexo, int idade) {
+            super("x", cpf, "X", idade, sexo);
+
+        }
+        @Override
+        void imprimir() {
+            System.out.println("CPF: " + cpf);
+            System.out.println("Idade: " + idade);
+            System.out.println("Sexo: " + sexo);
+        }
+    }
+
+    public static class PessoaJuridica extends Cliente {
+
+    }
 }

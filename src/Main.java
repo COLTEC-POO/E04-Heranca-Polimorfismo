@@ -13,6 +13,9 @@ public class Main {
         contas[0].depositar(200);
         contas[0].sacar(2000);
 
+        Operacao.OperacaoSaque Mano = new Operacao.OperacaoSaque(20);
+        Mano.imprimirExtrato();
+
 
         // Imprima o extrato da conta
         contas[0].imprimirExtrato();
