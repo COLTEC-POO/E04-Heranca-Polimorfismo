@@ -12,12 +12,13 @@ public class Cliente {
         System.out.println("Cliente Invalido");
     }
 
-    public Cliente() {
-        nome = this.nome;
+    public Cliente(String nome, String cpf, String endereco, int idade, char sexo) {
+        this.nome = nome;
         this.cpf = cpf;
 
-        data = new Date();
+        this.endereco = endereco;
+        this.idade = idade;
+        this.sexo = sexo;
 
-        qtdOperacao++;
     }
 }
