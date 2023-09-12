@@ -1,4 +1,3 @@
-import java.sql.SQLOutput;
 import java.util.Date;
 
 public class Cliente {
@@ -34,6 +33,7 @@ public class Cliente {
             // Imprimindo dados pegos da SuperClasse
             System.out.println("Nome: " + super.nome);
             System.out.println("Endereco: " + super.endereco);
+            System.out.println("Data de Criacao: " + super.data);
 
             // Imprimindo dados da propria SubClasse
             System.out.println("CPF: " + cpf);
@@ -59,6 +59,8 @@ public class Cliente {
             // Imprimindo dados pegos da SuperClasse
             System.out.println("Nome: " + super.nome);
             System.out.println("Endereco: " + super.endereco);
+            System.out.println("Data de Criacao: " + super.data);
+
 
             // Imprimindo dados da propria SubClasse
             System.out.println("CNPJ: " + cnpj);

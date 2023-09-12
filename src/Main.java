@@ -2,13 +2,12 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
-        Scanner entrada = new Scanner(System.in);
 
         System.out.println("====Sistema Bancário====");
         // Chama a função regContas
         Conta[] contas = Conta.regContas();
 
-        // Fazendo saques com clientes cadastrados
+        // Fazendo saques com cliente cadastrado no index 0
         contas[0].depositar(2000);
         contas[0].sacar(550);
 
@@ -17,8 +16,6 @@ public class Main {
             Cliente cliente = conta.getCliente();
                 System.out.println("Dados como cliente:");
                 cliente.imprimir();
-
-                System.out.println();
 
                 System.out.println("==== Extrato da Conta ====");
                 conta.imprimirExtrato();

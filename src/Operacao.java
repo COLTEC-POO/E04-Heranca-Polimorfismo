@@ -8,8 +8,6 @@ public class Operacao {
 
     char tipo;
 
-    private int numero;
-
     static int qtdOperacao = 0;
 
     public Operacao(char tipo, double valor) {

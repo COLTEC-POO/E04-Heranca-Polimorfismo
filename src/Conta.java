@@ -3,23 +3,20 @@ import java.util.Scanner;
 public class Conta {
 
     // Variaveis privadas basicas da conta
-    private int numero;
-    private String senha;
+    final int numero;
+    final String senha;
     private double saldo;
-    private String dono;
+    final String dono;
     private double limite;
 
     // inicializando cliente;
-    private Cliente cliente;
+    final Cliente cliente;
 
     // Inicializando o array de operacoes
-    private Operacao[] operacoes;
+    final Operacao[] operacoes;
 
     // Numeros de Operacoes;
     private int numOp;
-
-    //Numero de Contas;
-    private static int numdeContas = 0;
 
     // Construtor da Conta
     public Conta(int numero, String senha, double saldo, String dono, Cliente cliente) {
@@ -35,7 +32,6 @@ public class Conta {
         this.operacoes = new Operacao[1000];
 
         this.numOp = 0;
-        numdeContas++;
     }
 
     // Metodo para verificar o valor depositado e salvar a operacao
@@ -79,6 +75,9 @@ public class Conta {
             System.out.println("Digite o nome do dono:");
             String dono = linhaDeComando.nextLine();
 
+            System.out.println("Digite o endereco do dono:");
+            String endereco = linhaDeComando.nextLine();
+
             System.out.println("Digite o numero da conta:");
             int numero = linhaDeComando.nextInt();
             linhaDeComando.nextLine();
@@ -108,8 +107,9 @@ public class Conta {
                 System.out.println("Digite o Sexo: ");
                 char sexo = linhaDeComando.nextLine().charAt(0);
 
-                cliente = new Cliente.PessoaFisica(dono, "", cpf, idade, sexo);
+                cliente = new Cliente.PessoaFisica(dono, endereco, cpf, idade, sexo);
             } else if (tipoCliente == 'J' || tipoCliente == 'j') {
+                // Salvando os Dados como Pessoa Juridica
                 System.out.println("Digite o CNPJ:");
                 String cnpj = linhaDeComando.nextLine();
 
@@ -120,7 +120,7 @@ public class Conta {
                 System.out.println("Digite o setor:");
                 String setor = linhaDeComando.nextLine();
 
-                cliente = new Cliente.PessoaJuridica(dono, "", setor, cnpj, numFunc);
+                cliente = new Cliente.PessoaJuridica(dono, endereco, setor, cnpj, numFunc);
             } else {
                 System.out.println("Tipo de cliente inválido. A conta não será criada.");
                 continue;
@@ -129,7 +129,8 @@ public class Conta {
             contas[i] = new Conta(numero, senha, saldo, dono, cliente);
         }
 
-        for (Conta contaAtual : contas) { System.out.println("Dono da conta: " + contaAtual.getDono()); }
+        for (Conta contaAtual : contas) { System.out.println("Contas Cadastradas: " + contaAtual.getDono());
+            System.out.println();}
         return contas;
     }
 
@@ -141,32 +142,7 @@ public class Conta {
         }
     }
 
-    public static int getNumdeContas() {
-             return numdeContas;
-    }
-
     public String getDono() { return dono; }
-
-    public String setDono(String dono) {
-        this.dono = dono;
-        return dono;
-    }
-
-    public int getNumero() {
-        return numero;
-    }
-
-    public void setNumero(int numero) {
-        this.numero = numero;
-    }
-
-    public double getSaldo() {
-        return saldo;
-    }
-
-    public double getLimite() {
-        return limite;
-    }
 
     public Cliente getCliente() {
         return cliente;
