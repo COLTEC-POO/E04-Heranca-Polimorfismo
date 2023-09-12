@@ -1,14 +1,16 @@
-import java.sql.SQLOutput;
 import java.util.Scanner;
 
 public class Conta {
 
-    // Variaveis privadas
+    // Variaveis privadas basicas da conta
     private int numero;
     private String senha;
     private double saldo;
     private String dono;
     private double limite;
+
+    // inicializando cliente;
+    private Cliente cliente;
 
     // Inicializando o array de operacoes
     private Operacao[] operacoes;
@@ -20,11 +22,14 @@ public class Conta {
     private static int numdeContas = 0;
 
     // Construtor da Conta
-    public Conta(int numero, String senha, double saldo, String dono) {
+    public Conta(int numero, String senha, double saldo, String dono, Cliente cliente) {
         this.numero = numero;
         this.senha = senha;
         this.saldo = saldo;
         this.dono = dono;
+
+        this.cliente = cliente;
+
         setLimite(limite);
 
         this.operacoes = new Operacao[1000];
@@ -58,6 +63,7 @@ public class Conta {
         }
     }
 
+    // Metodo para registrar contas no array
     public static Conta[] regContas() {
         Scanner linhaDeComando = new Scanner(System.in);
 
@@ -86,17 +92,49 @@ public class Conta {
             linhaDeComando.nextLine();
             // Limpando o Buffer :/
 
-            contas[i] = new Conta(numero, senha, saldo, dono);
+            System.out.println("Digite 'P' para Pessoa Fisica ou 'J' para Pessoa Juridica:");
+            char tipoCliente = linhaDeComando.nextLine().charAt(0);
+
+            Cliente cliente;
+
+            if(tipoCliente == 'P' || tipoCliente == 'p') {
+                System.out.println("Digite o CPF:");
+                String cpf = linhaDeComando.nextLine();
+
+                System.out.println("Digite a idade:");
+                int idade = linhaDeComando.nextInt();
+                linhaDeComando.nextLine();
+
+                System.out.println("Digite o Sexo: ");
+                char sexo = linhaDeComando.nextLine().charAt(0);
+
+                cliente = new Cliente.PessoaFisica(dono, "", cpf, idade, sexo);
+            } else if (tipoCliente == 'J' || tipoCliente == 'j') {
+                System.out.println("Digite o CNPJ:");
+                String cnpj = linhaDeComando.nextLine();
+
+                System.out.println("Digite a idade:");
+                int numFunc = linhaDeComando.nextInt();
+                linhaDeComando.nextLine();
+
+                System.out.println("Digite o setor:");
+                String setor = linhaDeComando.nextLine();
+
+                cliente = new Cliente.PessoaJuridica(dono, "", setor, cnpj, numFunc);
+            } else {
+                System.out.println("Tipo de cliente inválido. A conta não será criada.");
+                continue;
+            }
+
+            contas[i] = new Conta(numero, senha, saldo, dono, cliente);
         }
 
-        for (Conta contaAtual : contas) {
-            System.out.println("Dono da conta: " + contaAtual.getDono());
-        }
+        for (Conta contaAtual : contas) { System.out.println("Dono da conta: " + contaAtual.getDono()); }
         return contas;
     }
 
     public void imprimirExtrato() {
-        System.out.println("Extrato da conta " + this.getDono());
+        System.out.println("Extrato da conta de " + this.getDono());
         for (int i = 0; i < numOp; i++) {
             Operacao operacao = operacoes[i];
             System.out.println(" " + operacao.data + "  " + (operacao.tipo == 'd' ? "d" : "s") + "  " + operacao.valor);
@@ -104,15 +142,14 @@ public class Conta {
     }
 
     public static int getNumdeContas() {
-        return numdeContas;
+             return numdeContas;
     }
 
-    public String getDono() {
-        return dono;
-    }
+    public String getDono() { return dono; }
 
-    public void setDono(String dono) {
+    public String setDono(String dono) {
         this.dono = dono;
+        return dono;
     }
 
     public int getNumero() {
@@ -129,6 +166,10 @@ public class Conta {
 
     public double getLimite() {
         return limite;
+    }
+
+    public Cliente getCliente() {
+        return cliente;
     }
 
     public void setLimite(double limite) {

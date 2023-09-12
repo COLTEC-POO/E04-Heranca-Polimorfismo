@@ -1,23 +1,30 @@
 import java.util.Scanner;
 
 public class Main {
-
     public static void main(String[] args) {
         Scanner entrada = new Scanner(System.in);
 
         System.out.println("====Sistema Bancário====");
-        // Chama a função regContas para criar as contas com base na entrada do usuário
+        // Chama a função regContas
         Conta[] contas = Conta.regContas();
 
-        // Utilizando operacoes dentro do array
-        contas[0].depositar(200);
-        contas[0].sacar(2000);
+        // Fazendo saques com clientes cadastrados
+        contas[0].depositar(2000);
+        contas[0].sacar(550);
 
-        Operacao.OperacaoSaque Mano = new Operacao.OperacaoSaque(20);
-        Mano.imprimirExtrato();
+        // Imprime dados dos clientes cadastrados
+        for (Conta conta : contas) {
+            Cliente cliente = conta.getCliente();
+                System.out.println("Dados como cliente:");
+                cliente.imprimir();
 
+                System.out.println();
 
-        // Imprima o extrato da conta
-        contas[0].imprimirExtrato();
+                System.out.println("==== Extrato da Conta ====");
+                conta.imprimirExtrato();
+
+            // Espaco entre as contas
+            System.out.println();
+        }
     }
 }

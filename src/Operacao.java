@@ -1,11 +1,14 @@
 import java.util.Date;
 
+// Classe principal de Operacao
 public class Operacao {
     double valor;
 
     Date data;
 
     char tipo;
+
+    private int numero;
 
     static int qtdOperacao = 0;
 
@@ -14,26 +17,19 @@ public class Operacao {
         this.valor = valor;
 
         data = new Date();
-
-        qtdOperacao++;
     }
-
-    void imprimirExtrato() {
-        System.out.println("Extrato da conta ");
-            for(int i = 0; i < qtdOperacao; i++) {
-                System.out.println(" " + this.data + "  " + (this.tipo == 'd' ? "d" : "s") + "  " + this.valor);
-            }
-        }
 
     public static class OperacaoSaque extends Operacao {
         public OperacaoSaque(double valor) {
             super('s', valor);
+            qtdOperacao++;
         }
     }
 
     public static class OperacaoDeposito extends Operacao {
         public OperacaoDeposito(double valor) {
             super('d', valor);
+            qtdOperacao++;
         }
     }
 }
