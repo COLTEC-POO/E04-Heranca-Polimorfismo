@@ -64,11 +64,8 @@ public class Conta {
         Scanner linhaDeComando = new Scanner(System.in);
 
         // TIPO[] nomeArray = new TIPO[TAMANHO];
-        int tamanho;
+        int tamanho = 2;
 
-        System.out.println("Informe a quantidade de contas: ");
-        tamanho = linhaDeComando.nextInt();
-        linhaDeComando.nextLine();
         Conta[] contas = new Conta[tamanho];
 
         for (int i = 0; i < contas.length; i++) {
@@ -137,8 +134,7 @@ public class Conta {
     public void imprimirExtrato() {
         System.out.println("Extrato da conta de " + this.getDono());
         for (int i = 0; i < numOp; i++) {
-            Operacao operacao = operacoes[i];
-            System.out.println(" " + operacao.data + "  " + (operacao.tipo == 'd' ? "d" : "s") + "  " + operacao.valor);
+            System.out.println(" " + operacoes[i].data + "  " + operacoes[i].tipo + "  " + operacoes[i].valor);
         }
     }
 

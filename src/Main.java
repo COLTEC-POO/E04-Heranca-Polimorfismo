@@ -1,9 +1,8 @@
-import java.util.Scanner;
-
 public class Main {
     public static void main(String[] args) {
 
         System.out.println("====Sistema Bancário====");
+
         // Chama a função regContas
         Conta[] contas = Conta.regContas();
 

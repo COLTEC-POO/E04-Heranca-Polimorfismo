@@ -1,15 +1,16 @@
 import java.util.Date;
 
 public class Cliente {
-    public String endereco;
-    public String nome;
-    public Date data;
+    String endereco;
+    String nome;
+     Date data;
 
     public Cliente(String nome, String endereco) {
         this.nome = nome;
         this.endereco = endereco;
         this.data = new Date();
     }
+
     void imprimir() {
         System.out.println("Cliente Invalido");
     }
@@ -48,12 +49,17 @@ public class Cliente {
 
         public int numFunc;
 
+        // Constructor de pessoa Juridica
         public PessoaJuridica(String nome, String endereco, String setor,String cnpj, int numFunc) {
+            // Pegando dados da superClasse
             super(nome, endereco);
+
+            // Constructor normalmente do restante dos dados
             this.cnpj = cnpj;
             this.numFunc = numFunc;
             this.setor = setor;
         }
+        // Sobrescrevendo a funcao de imprimir para amplia-la
         @Override
         void imprimir() {
             // Imprimindo dados pegos da SuperClasse
