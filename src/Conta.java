@@ -19,7 +19,7 @@ public class Conta {
     private int numOp;
 
     // Construtor da Conta
-    public Conta(int numero, String senha, double saldo, String dono, Cliente cliente) {
+    public Conta(int numero, String senha, double saldo, String dono, double limite, Cliente cliente) {
         this.numero = numero;
         this.senha = senha;
         this.saldo = saldo;
@@ -36,7 +36,6 @@ public class Conta {
 
     // Metodo para verificar o valor depositado e salvar a operacao
     public void depositar(double valor) {
-        saldo += valor;
 
         if (valor >= 0) {
             this.saldo += valor;
@@ -64,7 +63,7 @@ public class Conta {
         Scanner linhaDeComando = new Scanner(System.in);
 
         // TIPO[] nomeArray = new TIPO[TAMANHO];
-        int tamanho = 2;
+        int tamanho = 1;
 
         Conta[] contas = new Conta[tamanho];
 
@@ -141,6 +140,11 @@ public class Conta {
         for (int i = 0; i < numOp; i++) {
             operacoes[i].imprimirExtrato();
         }
+    }
+
+    public void imprimirConta(){
+        System.out.println("Número da Conta: " + numero + "\nSenha: " + senha + "\nSaldo: R$" + saldo + "\nDono: " + dono + "\nLimite: R$" + limite + "\n === Dados como cliente ===");
+        cliente.imprimir();
     }
 
     public String getDono() { return dono; }

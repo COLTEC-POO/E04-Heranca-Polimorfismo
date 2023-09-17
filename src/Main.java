@@ -13,8 +13,11 @@ public class Main {
         // Imprime dados dos clientes cadastrados
         for (Conta conta : contas) {
             Cliente cliente = conta.getCliente();
-                System.out.println("Dados como cliente:");
-                cliente.imprimir();
+//                System.out.println("Dados como cliente:");
+//                cliente.imprimir();
+
+            System.out.println("==== Dados das Contas Completas ====");
+            conta.imprimirConta();
 
                 System.out.println("==== Extrato da Conta ====");
                 conta.imprimirExtrato();
