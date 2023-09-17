@@ -131,10 +131,10 @@ public class Conta {
         return contas;
     }
 
-    public void imprimirExtrato() {
+   public void imprimirExtrato() {
         System.out.println("Extrato da conta de " + this.getDono());
         for (int i = 0; i < numOp; i++) {
-            System.out.println(" " + operacoes[i].data + "  " + operacoes[i].tipo + "  " + operacoes[i].valor);
+            operacoes[i].imprimirExtrato();
         }
     }
 
