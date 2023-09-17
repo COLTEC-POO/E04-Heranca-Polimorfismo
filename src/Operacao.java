@@ -17,10 +17,18 @@ public class Operacao {
         data = new Date();
     }
 
+        public void imprimirExtrato() {
+        System.out.println(" " + data + "  " + tipo + "  " + valor);
+    }
+
     public static class OperacaoSaque extends Operacao {
         public OperacaoSaque(double valor) {
             super('s', valor);
             qtdOperacao++;
+        }
+        @Override
+        public void imprimirExtrato() {
+            System.out.println(" " + data + "s" + " " + valor);
         }
     }
 
@@ -28,6 +36,10 @@ public class Operacao {
         public OperacaoDeposito(double valor) {
             super('d', valor);
             qtdOperacao++;
+        }
+        @Override
+        public void imprimirExtrato() {
+            System.out.println(" " + data + "d" + " " + valor);
         }
     }
 }
