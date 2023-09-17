@@ -88,6 +88,11 @@ public class Conta {
             linhaDeComando.nextLine();
             // Limpando o Buffer :/
 
+            System.out.println("Digite o limite da conta:");
+            double limite = linhaDeComando.nextDouble();
+            linhaDeComando.nextLine();
+            // Limpando o Buffer :/
+
             System.out.println("Digite 'P' para Pessoa Fisica ou 'J' para Pessoa Juridica:");
             char tipoCliente = linhaDeComando.nextLine().charAt(0);
 
@@ -123,7 +128,7 @@ public class Conta {
                 continue;
             }
 
-            contas[i] = new Conta(numero, senha, saldo, dono, cliente);
+            contas[i] = new Conta(numero, senha, saldo, dono, limite, cliente);
         }
 
         for (Conta contaAtual : contas) { System.out.println("Contas Cadastradas: " + contaAtual.getDono());
