@@ -40,5 +40,9 @@ public class Operacao {
         this.valor = valor;
     }
 
-    
+    // Método que imprime os dados do extrato no devido lugar
+
+    void imprimeExtrato() {
+        System.out.println(this.getData() + "\t" + this.getTipo() + "\t" + this.getValor()); ;
+    }
 }

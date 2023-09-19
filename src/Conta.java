@@ -122,14 +122,14 @@ public class Conta {
 
     }
 
-    // Método que imprime as transações realizadas numa conta
+    // Método que calcula quais e quantas operações foram realizadas na conta
 
     public void extrato(){
         int i;
         
         for (i = 0; i < this.qntOperacoes; i++) {
             Operacao x = this.operacoes[i];
-            System.out.println(x.getData() + "\t" + x.getTipo() + "\t" + x.getValor()); 
+            x.imprimeExtrato();
         }
 
     }
