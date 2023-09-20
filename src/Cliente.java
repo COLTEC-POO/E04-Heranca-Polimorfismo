@@ -2,14 +2,12 @@ import java.util.Date;
 public class Cliente {
     private String endereco;
     private String nome;
-    private Date data;
+    protected Date data;
 
-    public Cliente(String endereco, String nome) {
+    public Cliente(String nome, String endereco) {
         this.endereco = endereco;
         this.nome = nome;
-    }
 
-    public Cliente() {
     }
 
     public String getEndereco() {
