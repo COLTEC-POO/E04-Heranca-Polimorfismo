@@ -6,8 +6,12 @@ public class PessoaJuridica extends Cliente {
     protected int numFuncionarios;
     protected String setor;
 
+<<<<<<< HEAD
     public PessoaJuridica(String nome, String endereco, String cnpj, int numFuncionarios, String setor) {
         super(nome, endereco);
+=======
+    public PessoaJuridica() {
+>>>>>>> origin/main
         this.cnpj = cnpj;
         this.numFuncionarios = numFuncionarios;
         this.setor = setor;
@@ -39,7 +43,11 @@ public class PessoaJuridica extends Cliente {
 
     // Reimplementacao do metodo para imprimir os dados da PJ
     void imprimir(){
+<<<<<<< HEAD
         System.out.println("=============== Pessoa Jurídica ================");
+=======
+        System.out.println("_______________________________________________");
+>>>>>>> origin/main
         System.out.println("Nome: " + this.getNome());
         System.out.println("Endereco: " + this.getEndereco());
         System.out.println("CNPJ: " + this.getCnpj());

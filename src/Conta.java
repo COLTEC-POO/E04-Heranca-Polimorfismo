@@ -14,6 +14,7 @@ public class Conta {
     // Define valores padrões para inicialização
     // Método especial invocado toda vez que um novo objeto é criado
     public Conta() {
+<<<<<<< HEAD
         this.numeroConta = -1;
         this.saldoConta = 0;
         this.Dono = null;
@@ -26,6 +27,70 @@ public class Conta {
         this.saldoConta = saldoConta;
         this.limiteConta = limiteConta;
         totalContas++;
+=======
+        this.cliente = new Cliente();
+        this.numeroConta = -1;
+        this.limiteConta = 0;
+        this.saldoConta = 0;
+        this.date = date;
+        totalContas++;
+    }
+
+    public Cliente getCliente() {
+        return cliente;
+    }
+
+    public void setCliente(Cliente cliente) {
+        this.cliente = cliente;
+    }
+
+    public String getDono() {
+        return Dono;
+    }
+
+    public void setDono(String dono) {
+        Dono = dono;
+    }
+
+    public int getNumeroConta() {
+        return numeroConta;
+    }
+
+    public void setNumeroConta(int numeroConta) {
+        this.numeroConta = numeroConta;
+    }
+
+    public double getSaldoConta() {
+        return saldoConta;
+    }
+
+    public void setSaldoConta(double saldoConta) {
+        this.saldoConta = saldoConta;
+    }
+
+    public double getLimiteConta() {
+        return limiteConta;
+    }
+
+    public void setLimiteConta(double limiteConta) {
+        this.limiteConta = limiteConta;
+    }
+
+    public Operacao[] getOperacoes() {
+        return operacoes;
+    }
+
+    public void setOperacoes(Operacao[] operacoes) {
+        this.operacoes = operacoes;
+    }
+
+    public static int getTotalContas() {
+        return totalContas;
+    }
+
+    public static void setTotalContas(int totalContas) {
+        Conta.totalContas = totalContas;
+>>>>>>> origin/main
     }
 
     // Método para Depositar
@@ -51,7 +116,11 @@ public class Conta {
             operacoes[Operacao.getTotalOperacoes()] = new Operacao('s', valor) {
                 @Override
                 public void imprimirExtrato() {
+<<<<<<< HEAD
                     System.out.println(this.data + " \t " + this.tipo + " \t " + this.valor);
+=======
+                    System.out.println(this.data + "  \t " + this.tipo + "  \t " + this.valor);
+>>>>>>> origin/main
                 }
             };
             return true;
@@ -62,7 +131,11 @@ public class Conta {
     public void dadosConta(){
         System.out.println("Dono da conta: " + Dono);
         System.out.println("Numero da Conta: " + numeroConta);
+<<<<<<< HEAD
         System.out.println("Saldo atual: " + saldoConta);
+=======
+        System.out.println("Saldo: " + saldoConta);
+>>>>>>> origin/main
         System.out.println("Limite: " + limiteConta);
     }
 
